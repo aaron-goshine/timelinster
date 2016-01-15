@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="7" />
+    <style>
+      p {
+        border-bottom: 1px dashed #4c4c4c;
+        padding: 10px;
+        margin: 0px;
+      }
+      .selected {
+        border: 4px dashed #c0de01;
+      }
+      .pass {
+        color: green;
+        background-color: #c0de01;
+      }
+
+      .fail {
+        color: red;
+        background-color: #facade;
+      }
+
+      #console {
+        margin: 20px auto;
+        width: 600px;
+        font-family: monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="console">
+    </div>
+    <div id="display" style="display: none"></div>
+    <script type="text/javascript" src="/lib/jquery-2.2.0.js"></script>
+    <script type="text/javascript" src="/js/widget-code.js"></script>
+    <script type="text/javascript" src="/js-test/test-util.js"></script>
+    <script>
+      testUtil.testCase("existence", {
+        'test existence': function () {
+          testUtil.assert('eventSpan existence', typeof eventSpan === 'function');
+        },
+        'test calculate Event Position existence': function () {
+          testUtil.assert('timelineScale existence', typeof timelineScale === 'function');
+        },
+        'test convert twenty four hour existence': function () {
+          testUtil.assert('convertTWHtoMins existence', typeof convertTWHtoMins === 'function');
+        }
+      });
+
+      testUtil.testCase("Unit Tests", {
+        'test eventSpan': function () {
+          testUtil.assert('eventSpan should return 16', Math.floor(eventSpan(1830, 2030)) === 16);
+        },
+        'test timelineScale': function () {
+          testUtil.assert('timelineScale should return 0', Math.floor(timelineScale(800)) === 0);
+        },
+        'test convertTWHtoMins': function () {
+          testUtil.assert('convertTWHtoMins should return 481', Math.floor(convertTWHtoMins(801)) === 481);
+        }
+      });
+    </script>
+  </body>
+</html>
