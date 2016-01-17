@@ -1,0 +1,40 @@
+{
+  "name": "Time Captain",
+  "ticks":[800, 1400, 1530, 1700, 1800, 2000],
+
+  "schedules": [
+    {"user": "Alpha Owen", "color": "#E82625", "schedule": [
+      {"from": 800, "to": 1400, "label": "meeting"},
+      {"from": 1800, "to": 2000, "label": "waiting"},
+      {"from": 1530, "to": 1700, "label": "planing"}
+    ]},
+    {"user": "Beta Guy", "color": "#94BF21", "schedule": [
+      {"from": 1000, "to": 1400, "label": "Morning"},
+      {"from": 1800, "to": 2000, "label": "meeting"},
+      {"from": 1430, "to": 1700, "label": "planing"}
+    ]},
+    {"user": "Gamma More", "color": "#EB6427", "schedule": [
+      {"from": 800, "to": 1100, "label": "Morning"},
+      {"from": 1400, "to": 1450, "label": "meeting"},
+      {"from": 1530, "to": 1700, "label": "planing"}
+    ]},
+    {"user": "Delta Morris", "color": "#28690E", "schedule": [
+      {"from": 800, "to": 1430, "label": "Morning"},
+      {"from": 1900, "to": 2000, "label": "meeting"},
+      {"from": 1530, "to": 1730, "label": "planing"}
+    ]},
+    {"user": "Epsilon Greene", "color": "#205FAA", "schedule": [
+      {"from": 800, "to": 930, "label": "Morning"},
+      {"from": 1700, "to": 2000, "label": "meeting"},
+      {"from": 1530, "to": 1600, "label": "planing"}
+    ]}
+    ,
+    {"user": "Zeta Jones", "color": "#99CCFF", "schedule": [
+      {"from": 900, "to": 930, "label": "Morning"},
+      {"from": 1000, "to": 1430, "label": "meeting"},
+      {"from": 1530, "to": 1730, "label": "planing"}
+    ]}
+
+
+  ]
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Vine Component</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link rel="stylesheet" href="/styles/timeline.css" media="screen"/>
+     </head>
+  <body>
+    <!-- template -->
+    <div id="timelineComponent"></div>
+    <!-- end template -->
+    <script src="/js-timeline-functions/timeline-functions.js"></script>
+    <script src="/reactjs-app/bower_components/react/react.js"></script>
+    <script src="/reactjs-app/bower_components/react/react-dom.js"></script>
+    <script src="TimelineComponent.js"></script>
+    <script >
+      window.addEventListener('load', function () {
+        var roger = new XMLHttpRequest();
+        roger.open('GET', '/schedule.json', true);
+        roger.onreadystatechange = function () {
+          if (roger.readyState !== 4 || roger.status !== 200) return;
+          var data = JSON.parse(roger.responseText);
+          var TLComponentFactory = React.createFactory(TimelineComponent);
+          ReactDOM.render(TLComponentFactory({data, data}),
+                          document.getElementById('timelineComponent')
+                         );
+        };
+        roger.send();
+      });
+</script>
+
+  </body>
+</html>
+

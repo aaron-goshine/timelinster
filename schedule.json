@@ -1,0 +1,9 @@
+{
+  "name": "Busy Bee",
+  "ticks":[800, 1400, 2000],
+  "schedule": [
+    {"from": 800, "to": 1400, "label": "Morning meeting"},
+    {"from": 1800, "to": 2000 , "label": "Morning meeting"},
+    {"from": 1530, "to": 1700, "label": "Afternoon meeting"}
+  ]
+}

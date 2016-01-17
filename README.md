@@ -1,15 +1,11 @@
-#Basic vine line component
+#Basic timelinster  component
 
 - nodejs needed to be installed
 
-  `git clone git@github.com:aaron-goshine/vine.git`
+  `git clone git@github.com:aaron-goshine/timelinster.git`
 
-  `cd vine`
-
-  `npm install`
-
-  `gulp`
+  `cd timelinster`
 
   `npm start`
 
-# vine
+

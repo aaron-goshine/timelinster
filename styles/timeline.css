@@ -1,0 +1,46 @@
+ .component * {
+    font-family: Helvetica;
+}
+
+.component {
+    padding-top: 2em;
+    height: 2em;
+}
+
+.time-line {
+    height: 2em;
+    position: relative;
+}
+
+.bars {
+    height: 2em;
+    position: absolute;
+    background-color: #ECECEC;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.ticks {
+    background-color: black;
+    position: inherit;
+    height: inherit;
+    width: 5px;
+}
+
+.event-deltas {
+    position: inherit;
+    height: inherit;
+    background-color: #94BF21;
+    text-align: center;
+    line-height: 2em;
+}
+
+.ticks label {
+    top: -1.5em;
+    position: inherit;
+}
+
+.bars div:last-child label {
+    left: -3em;
+}
+
