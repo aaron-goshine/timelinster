@@ -44,21 +44,11 @@
       },
       getEventStyle: function (event) {
         var styleObj = timelineFns.generateEventStyle(event);
-        var style = '';
-        for (props in styleObj) {
-          if((/^n_/i).test(props)) continue;
-          style += String(props + ': ' + styleObj[props]) + '; ';
-        }
-        return style; 
+        return 'width: ' + styleObj['width'] + '; left: ' + styleObj['left'] + ';';
       },
       getTickStyle: function (value) {
         var styleObj = timelineFns.generateTickStyle(value);
-        var style = '';
-        for (props in styleObj) {
-          if((/^n_/i).test(props)) continue;
-          style += String(props + ': ' + styleObj[props]) + '; ';
-        }
-        return style; 
+        return 'width: ' + styleObj['width'] + '; left: ' + styleObj['left'] + ';';
       }
     });
   </script>
