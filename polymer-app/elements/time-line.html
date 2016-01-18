@@ -1,66 +1,17 @@
+<link rel="stylesheet" href="/styles/timeline.css" scope="html /deep/">
+
 <link rel="import" href="/polymer-app/bower_components/polymer/polymer.html">
 <link rel="import" href="/polymer-app/bower_components/iron-ajax/iron-ajax.html">
 
 <dom-module id="time-line" attributes="url">
   <template>
-    <style>
-    .component * {
-        font-family: Helvetica;
-    }
-
-    .component {
-        padding-top: 2em;
-        height: 2em;
-    }
-
-    .time-line {
-        height: 2em;
-        position: relative;
-    }
-
-    .bars {
-        height: inherit;
-        position: absolute;
-        background-color: #ECECEC;
-        width: 100%;
-        top: 0;
-        left: 0;
-    }
-    .ticks {
-        background-color: black;
-        position: inherit;
-        height: inherit;
-        width: 5px;
-    }
-
-    .event-deltas {
-        position: inherit;
-        height: inherit;
-        background-color: #94BF21;
-        text-align: center;
-        line-height: 2em;
-    }
-
-    .ticks label {
-        top: -1.5em;
-        position: inherit;
-    }
-
-    #bars div:last-child {
-      background: pink;
-      width: 20px;
-      height: 20px;
-        left: -3em;
-    }
-  </style>
-
   <iron-ajax auto url="{{url}}" handle-as="json" last-response="{{ajaxResponse}}" ></iron-ajax>
 
   <div class="component">
       <div class="time-line">
         <div id="bars" class="bars">
           <template is="dom-repeat" items="[[ajaxResponse.schedule]]">
-            <div class="event-deltas" style$="[[getEventStyle(item)]]" >
+            <div class="event-deltas" style$="[[getEventStyle(item)]]">
             </div>
           </template>
           <template is="dom-repeat" items="[[ajaxResponse.ticks]]">
@@ -95,7 +46,8 @@
         var styleObj = timelineFns.generateEventStyle(event);
         var style = '';
         for (props in styleObj) {
-          style += String(props + ':' + styleObj[props]) + ';';
+          if((/^n_/i).test(props)) continue;
+          style += String(props + ': ' + styleObj[props]) + '; ';
         }
         return style; 
       },
@@ -103,7 +55,8 @@
         var styleObj = timelineFns.generateTickStyle(value);
         var style = '';
         for (props in styleObj) {
-          style += String(props + ':' + styleObj[props]) + ';';
+          if((/^n_/i).test(props)) continue;
+          style += String(props + ': ' + styleObj[props]) + '; ';
         }
         return style; 
       }

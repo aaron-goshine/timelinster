@@ -40,7 +40,7 @@
     position: inherit;
 }
 
-.bars div:last-child label {
+#bars div:last-of-type label, .bars div:last-child label {
     left: -3em;
 }
 
