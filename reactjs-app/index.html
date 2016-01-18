@@ -23,7 +23,7 @@
           if (roger.readyState !== 4 || roger.status !== 200) return;
           var data = JSON.parse(roger.responseText);
           var TLComponentFactory = React.createFactory(TimelineComponent);
-          ReactDOM.render(TLComponentFactory({data, data}),
+          ReactDOM.render(TLComponentFactory({data: data}),
                           document.getElementById('timelineComponent')
                          );
         };
