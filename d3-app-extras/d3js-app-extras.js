@@ -72,7 +72,8 @@
            }})
            .style({'fill': 'red', 'height': viewPortHeight, 'width': 5});
                   timeline.append('text').text(function (tickValue) {
-                    return timelineFns.labelFormat((now.getHours() * 100) + now.getMinutes());
+                    // timelineFns.labelFormat((now.getHours() * 100) + now.getMinutes());
+                    return ' ';
                   }).attr({'y': -gutter, 'class': 'label', 'x': function (tickValue) {
                     return timelineFns.generateTickStyle((now.getHours() * 100) + now.getMinutes()).left;
                   }});
