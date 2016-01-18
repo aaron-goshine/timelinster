@@ -1,4 +1,3 @@
-'use strict';
 var timelineApp = angular.module('timelineApp', []);
 
 timelineApp.controller('timelineController', ['$http', function ($http) {
@@ -25,11 +24,11 @@ timelineApp.directive('timeline', function () {
         return timelineFns.generateTickStyle(value);
       };
     }
-  }
+  };
 });
 
-timelineApp.filter('labelFormat', [function() {
+timelineApp.filter('labelFormat', [ function () {
   return function (label) {
     return timelineFns.labelFormat(label);
-  }
+  };
 }]);

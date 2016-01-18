@@ -1,6 +1,9 @@
 
 (function (tlfns) {
-  /** @function renderEventView * @param {object} $parent - a jQuery wrapped element designated to contain time line moving parts * @param {array} collection - collection of items to render to the html view
+  /**
+   * @function renderEventView
+   * @param {object} $parent - a Dom element designated to contain time line moving parts
+   * @param {array} collection - collection of items to render to the html view
    * @param {function} stylefn - callback that should return an object containing styles
    * @param {string} className - a class name for each element generated from the collection
    */
@@ -11,9 +14,8 @@
       var styles = stylefn(item);
       var divElement = document.createElement('div');
       divElement.setAttribute('class', className);
-      for (var props in styles) {
-        divElement.style[props] = styles[props];
-      }
+      divElement.style.width = styles.width;
+      divElement.style.left = styles.left;
 
       if (typeof item === 'number' || typeof item === 'string') {
         var labelElement = document.createElement('label');

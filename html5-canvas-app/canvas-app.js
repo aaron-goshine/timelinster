@@ -37,10 +37,11 @@
       ctx.fillStyle = 'black';
       var tickSytyle = tlfns.generateTickStyle(data.ticks[j]);
       var left = canvas.width * Number(tickSytyle.n_left);
+      labelLeft = left;
 
-      if (j > 0) {
+      if (j === data.ticks.length - 1) {
+        labelLeft = labelLeft - (labelFontSize * 3);
         left = left - tickSytyle.n_width;
-        labelLeft = left - (labelFontSize  * 3);
       }
 
       ctx.fillRect(left, topMargin, tickSytyle.n_width, barHeight);

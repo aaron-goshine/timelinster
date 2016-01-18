@@ -29,7 +29,8 @@
     mainGroup.append('rect')
       .attr({'fill': function () {
         //  return userSchdules.color;
-        return '#94BF21';
+        //  return '#94BF21';
+         return color(i * 100);
       }, 'height': lineheight})
       .attr({'width': function (eventd) {
         return timelineFns.generateEventStyle(eventd).width;
@@ -113,7 +114,7 @@
   });
 
   window.setInterval(function () {
-    // redrawWithData();
+    redrawWithData();
   }, 600);
 
 }(timelineFns));
