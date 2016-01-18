@@ -5,7 +5,7 @@
   var data;
 
   var draw = function () {
-    if(!data) return;
+    if (!data) return;
 
     var dlen = data.schedules.length;
     var lineheight = (viewPortHeight - (padding * dlen)) / dlen;
@@ -13,21 +13,21 @@
     d3.select('#main-group').remove();
 
     d3.select('#timeline')
-    .style({'width': '100%', 'height': viewPortHeight + padding })
-    .append('g')
-    .attr({'id': 'main-group', transform: 'translate(0, 30)' })
-    .append('rect')
-    .style({'fill': '#ECECEC', 'width': '100%', 'height': viewPortHeight});
+      .attr({'width': '100%', 'height': viewPortHeight + padding })
+      .append('g')
+      .attr({'id': 'main-group', transform: 'translate(0, 30)' })
+      .append('rect')
+      .attr({'fill': '#ECECEC', 'width': '100%', 'height': viewPortHeight});
 
     d3.map(data.schedules)
-    .forEach(function (i, userSchdules) {
+      .forEach(function (i, userSchdules) {
       var userColor = color(i);
       var mainGroup = d3.select('#main-group').selectAll('.event-daltas' + i)
       .data(userSchdules.schedule)
       .enter();
 
-      mainGroup.append('rect')
-      .style({'fill': function () {
+    mainGroup.append('rect')
+      .attr({'fill': function () {
         //  return userSchdules.color;
         return '#94BF21';
       }, 'height': lineheight})
@@ -54,45 +54,41 @@
     });
 
     var timeline = d3.select('#main-group')
-    .selectAll('.ticks')
-    .data(data.ticks)
-    .enter();
+      .selectAll('.ticks')
+      .data(data.ticks)
+      .enter();
 
     var now = new Date();
 
     timeline.append('rect')
-    .attr({'class': 'ticks', 'x': function (tickValue, i) {
-      var x = timelineFns.generateTickStyle(tickValue).n_left * 100;
-     return (x > 99) ? (x - 0.1) + '%' : x + '%';
-    }})
-    .style({'fill': 'black', 'height': viewPortHeight, 'width': function (tickValue) {
-             return timelineFns.generateTickStyle(tickValue, 1.5).width;
-      }
-    });
+      .attr({'class': 'ticks', 'x': function (tickValue, i) {
+        var x = timelineFns.generateTickStyle(tickValue).n_left * 100;
+        return (x > 99) ? (x - 0.1) + '%' : x + '%';
+      }})
+      .attr({'fill': 'black', 'height': viewPortHeight, 'width': function (tickValue) {
+            return timelineFns.generateTickStyle(tickValue, 1.5).width;
+          }
+        });
 
-// ---
     timeline.append('text')
-    .text(function (tickValue) {
-      return timelineFns.labelFormat(tickValue);
-    })
-    .attr({'y': -gutter, 'class': 'label', 'x': function (tickValue, i) {
-      var x = timelineFns.generateTickStyle(tickValue).n_left * 100;
-      return (x > 99) ? (x - 4) + '%' : x + '%';
-    }});
+      .text(function (tickValue) {
+        return timelineFns.labelFormat(tickValue);
+      })
+      .attr({'y': -gutter, 'class': 'label', 'x': function (tickValue, i) {
+        var x = timelineFns.generateTickStyle(tickValue).n_left * 100;
+        return (x > 99) ? (x - 4) + '%' : x + '%';
+      }});
 
     d3.select('#main-group')
-    .append('rect')
-    .attr({'class': 'now', 'x': function () {
-      var zerohours = (now.getHours() * 100) + now.getMinutes();
-      return timelineFns.generateTickStyle((now.getHours() * 100) + now.getMinutes()).left;
-    }})
-    .style({'fill': 'red', 'height': viewPortHeight, 'width': 1})
-    .forEach(function (d) {
-
-    });
+      .append('rect')
+      .attr({'class': 'now', 'x': function () {
+        var zerohours = (now.getHours() * 100) + now.getMinutes();
+        return timelineFns.generateTickStyle((now.getHours() * 100) + now.getMinutes()).left;
+      }, 'width': 100})
+      .attr({'fill': 'red', 'height': viewPortHeight, 'width': 1});
 
     d3.select('#main-group')
-    .append('text')
+      .append('text')
       .text(function (tickValue) {
         return timelineFns.labelFormat((now.getHours() * 100) + now.getMinutes());
       })
@@ -117,7 +113,7 @@
   });
 
   window.setInterval(function () {
-    redrawWithData();
+    // redrawWithData();
   }, 600);
 
 }(timelineFns));
