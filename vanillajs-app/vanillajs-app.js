@@ -2,7 +2,7 @@
 (function (tlfns) {
   /**
    * @function renderEventView
-   * @param {object} $parent - a Dom element designated to contain time line moving parts
+   * @param {object} parent - a Dom element designated to contain time line moving parts
    * @param {array} collection - collection of items to render to the html view
    * @param {function} stylefn - callback that should return an object containing styles
    * @param {string} className - a class name for each element generated from the collection

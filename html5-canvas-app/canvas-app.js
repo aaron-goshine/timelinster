@@ -1,3 +1,6 @@
+/** @ignore */
+var timelineFns = timelineFns;
+// -- end --/
 
 (function (tlfns) {
   var canvas = document.getElementById('canvas');
@@ -9,6 +12,9 @@
   var labelFontSize = 15;
   var labelLeft = 0;
 
+  /**
+   * @function draw  - main drawing function to repaint the entire canvas
+   */
   var draw = function () {
     var gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
     gradient.addColorStop('0', '#FFCC00');
@@ -19,8 +25,9 @@
     ctx.font = '15px Helvetica';
     ctx.fillStyle = '#ECECEC';
     ctx.fillRect(0, topMargin, canvas.width, barHeight);
+
     /**
-     * This is where the event sections are created
+     * This is where the event spans are drawn to the stage
      */
     for (var i = 0; i < data.schedule.length; i++) {
       ctx.fillStyle = gradient;
@@ -28,10 +35,9 @@
       ctx.fillRect(canvas.width * Number(eventStyle.n_left),
         topMargin, canvas.width * Number(eventStyle.n_width), barHeight);
     }
-    i = null;
 
     /**
-     * This is where the event separators are created
+     * This is where the event separators/tick and labels are drawn on the stage
      */
     for (var j = 0; j < data.ticks.length; j++) {
       ctx.fillStyle = 'black';
@@ -47,6 +53,7 @@
       ctx.fillRect(left, topMargin, tickSytyle.n_width, barHeight);
       ctx.fillStyle = gradient;
       ctx.fillText(tlfns.labelFormat(data.ticks[j]), labelLeft, labelFontSize);
+      // reset label x position after every iteration to prevent an incrementing bug
       labelLeft = 0;
     }
   };

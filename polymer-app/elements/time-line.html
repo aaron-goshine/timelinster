@@ -1,22 +1,17 @@
 <link rel="stylesheet" href="/styles/timeline.css">
-
 <link rel="import" href="/polymer-app/bower_components/polymer/polymer.html">
 <link rel="import" href="/polymer-app/bower_components/iron-ajax/iron-ajax.html">
-
 <dom-module id="time-line" attributes="url">
   <template>
   <iron-ajax auto url="{{url}}" handle-as="json" last-response="{{ajaxResponse}}" ></iron-ajax>
-
   <div class="component">
       <div class="time-line">
         <div id="bars" class="bars">
           <template is="dom-repeat" items="[[ajaxResponse.schedule]]">
-            <div class="event-deltas" style$="[[getEventStyle(item)]]">
-            </div>
+            <div class="event-deltas" style$="[[getEventStyle(item)]]"></div>
           </template>
           <template is="dom-repeat" items="[[ajaxResponse.ticks]]">
-            <div class="ticks" style$="[[getTickStyle(item)]]">
-              <label>[[formatter(item)]]</label>
+            <div class="ticks" style$="[[getTickStyle(item)]]"><label>[[formatter(item)]]</label>
             </div>
           </template>
         </div>
@@ -29,9 +24,6 @@
       is: 'time-line',
       ready: function (event) {
         console.log('ready');
-      },
-      responseCallback: function () {
-          console.log ('callback');
       },
       getSpan: function (from, to) {
        return timelineFns.eventSpan(from, to);

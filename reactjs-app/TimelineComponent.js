@@ -1,5 +1,21 @@
+/**
+ * @ignore @hack for eslint
+ */
+var React = React;
+var timelineFns = timelineFns;
+// -- end hack --//
+
+/**
+ * @module TimelineComponent;
+ * @prop {object} data
+ */
+
 var TimelineComponent = React.createClass({
   displayName: 'TimelineComponent',
+  /**
+   * @method generateEventSpans - create the event spans base on the current data set
+   * found in the schedule array on the data props
+   */
   generateEventSpans: function generateEventSpans () {
     var data = this.props.data.schedule;
     return data.map(function (event, index) {
@@ -9,6 +25,10 @@ var TimelineComponent = React.createClass({
       });
     });
   },
+  /**
+   * @method generateTicks - create the current ticks base on the tick values array
+   * found within the data props
+   */
   generateTicks: function generateTicks () {
     var data = this.props.data.ticks;
     return data.map(function (item, index) {

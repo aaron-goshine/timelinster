@@ -58,7 +58,7 @@
     };
   };
   /**
-   * @function ggenerateTickStyle
+   * @function generateTickStyle
    * @param {object} value - value of the tick
    * @return {object} style object
    */
@@ -73,8 +73,14 @@
     };
   };
 
+  /**
+   * @function labelFormat
+   * @param  {string|number} - twenty four hours format value
+   * @return {string} - a formatted string with the semicolon in the correct
+   * place.
+   */
   win.timelineFns.labelFormat = function (value) {
-    if (!value) return;
+    if (!value || value.length > 4) return value;
     var valueStr = String(value);
     var valueArr = (['', '0', '00', '000'][4 - valueStr.length] + valueStr).split('');
     valueArr.splice(2, 0, ':');

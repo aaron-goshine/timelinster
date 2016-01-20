@@ -1,3 +1,9 @@
+/**
+ * @ignore @hack for eslint
+ */
+var timelineFns = timelineFns;
+var jQuery = jQuery;
+// --- end hack --- //
 
 (function ($, tlfns) {
   /**

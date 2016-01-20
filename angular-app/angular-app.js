@@ -1,15 +1,41 @@
+/**
+ * @ignore @hack for eslint
+ */
+var angular = angular;
+var timelineFns = timelineFns;
+// --- end hack --- //
+
+/**
+ * @module timelineApp;
+ * @name timelineApp
+ * @ngdoc module
+ */
 var timelineApp = angular.module('timelineApp', []);
 
-timelineApp.controller('timelineController', ['$http', function ($http) {
+/**
+ * @memberof timelineApp
+ * @name timelineController
+ * @ngdoc controller
+ * @param {service} $http
+ */
+
+var timelineController = function ($http) {
   var self = this;
   $http.get('/schedule.json').then(function (response) {
     self.data = response.data;
   }, function (errResponse) {
     console.error('Error while fetching notes');
   });
-}]);
+};
 
-timelineApp.directive('timeline', function () {
+/**
+ * @memberof timelineApp
+ * @name timelineDirective
+ * @ngdoc directive
+ * @note on {object} timelineFns;
+ */
+
+var timelineDirective = function () {
   return {
     templateUrl: '/angular-app/timeline-template.html',
     restrict: 'E',
@@ -25,10 +51,19 @@ timelineApp.directive('timeline', function () {
       };
     }
   };
-});
+};
 
-timelineApp.filter('labelFormat', [ function () {
+/**
+ * @memberof timelineApp
+ * @name labelFormat
+ * @ngdoc filter
+ */
+var labelFormat = function () {
   return function (label) {
     return timelineFns.labelFormat(label);
   };
-}]);
+};
+
+timelineApp.controller('timelineController', timelineController);
+timelineApp.directive('timeline', timelineDirective);
+timelineApp.filter('labelFormat', labelFormat);

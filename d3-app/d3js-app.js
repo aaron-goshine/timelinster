@@ -1,8 +1,17 @@
+/** @ignore @hack eslint */
+var d3 = d3;
+var timelineFns = timelineFns;
+/* -- end hack -- */
+
 window.addEventListener('load', function () {
   /**
    * fetch Schedule data
    */
   d3.json('/schedule.json', function (error, data) {
+    if (error) {
+      console.log(error);
+      return;
+    }
     d3.select('#timeline')
     .attr({'width': '100%', 'height': '4em'})
     .append('rect')
