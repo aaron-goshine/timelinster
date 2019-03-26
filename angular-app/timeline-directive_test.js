@@ -1,13 +1,5 @@
-/**
- * @ignore @hack to silent eslint in strict mode
- */
-var describe = describe;
-var beforeEach = beforeEach;
-var it = it;
-var inject = inject;
-var expect = expect;
-// --- end hack --- //
-//
+/* globals describe beforeEach inject expect it */
+
 describe('version module', function () {
   beforeEach(module('version'));
 
