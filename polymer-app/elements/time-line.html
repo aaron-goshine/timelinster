@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="/styles/timeline.css">
-<link rel="import" href="/polymer-app/bower_components/polymer/polymer.html">
-<link rel="import" href="/polymer-app/bower_components/iron-ajax/iron-ajax.html">
+<link rel="stylesheet" href="/timelinster/styles/timeline.css">
+<link rel="import" href="/timelinster/polymer-app/bower_components/polymer/polymer.html">
+<link rel="import" href="/timelinster/polymer-app/bower_components/iron-ajax/iron-ajax.html">
 <dom-module id="time-line" attributes="url">
   <template>
   <iron-ajax auto url="{{url}}" handle-as="json" last-response="{{ajaxResponse}}" ></iron-ajax>
@@ -23,7 +23,6 @@
     Polymer({
       is: 'time-line',
       ready: function (event) {
-        console.log('ready');
       },
       getSpan: function (from, to) {
        return timelineFns.eventSpan(from, to);
