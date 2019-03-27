@@ -1,7 +1,8 @@
 <div class="component">
   <div class="time-line" id="time-line">
     <div class="bars" id="bars">
-      <div ng-repeat="event in data.schedule" class="event-deltas" ng-style="getEventStyle(event)" ></div>
+      <div ng-repeat="event in data.schedule"
+        class="event-deltas" ng-style="getEventStyle(event)" ></div>
       <div ng-repeat="item in data.ticks" class="ticks" ng-style="getTickStyle(item)">
         <label>{{item | labelFormat}}</label>
       </div>

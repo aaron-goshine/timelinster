@@ -1,9 +1,4 @@
-/**
- * @ignore @hack for eslint
- */
-var angular = angular;
-var timelineFns = timelineFns;
-// --- end hack --- //
+/* globals timelineFns timelineFns  angular */
 
 /**
  * @module timelineApp;
@@ -21,7 +16,7 @@ var timelineApp = angular.module('timelineApp', []);
 
 var timelineController = function ($http) {
   var self = this;
-  $http.get('/schedule.json').then(function (response) {
+  $http.get('/timelinster/schedule.json').then(function (response) {
     self.data = response.data;
   }, function (errResponse) {
     console.error('Error while fetching notes');
@@ -37,7 +32,7 @@ var timelineController = function ($http) {
 
 var timelineDirective = function () {
   return {
-    templateUrl: '/angular-app/timeline-template.html',
+    templateUrl: '/timelinster/angular-app/timeline-template.html',
     restrict: 'E',
     scope: {
       data: '='
