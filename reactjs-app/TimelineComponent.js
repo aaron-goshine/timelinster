@@ -1,9 +1,4 @@
-/**
- * @ignore @hack for eslint
- */
-var React = React;
-var timelineFns = timelineFns;
-// -- end hack --//
+/* globals React timelineFns */
 
 /**
  * @module TimelineComponent;
@@ -20,7 +15,8 @@ var TimelineComponent = React.createClass({
     var data = this.props.data.schedule;
     return data.map(function (event, index) {
       return React.createElement('div', {
-        key: index, className: 'event-deltas',
+        key: index,
+        className: 'event-deltas',
         style: timelineFns.generateEventStyle(event)
       });
     });
@@ -35,7 +31,7 @@ var TimelineComponent = React.createClass({
       return React.createElement('div', {
         key: index, className: 'ticks', style: timelineFns.generateTickStyle(item)
       },
-        React.createElement('label', null, timelineFns.labelFormat(item)));
+      React.createElement('label', null, timelineFns.labelFormat(item)));
     });
   },
   render: function render () {

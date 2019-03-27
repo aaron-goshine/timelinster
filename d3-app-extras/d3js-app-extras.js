@@ -113,7 +113,7 @@
   };
 
   function redrawWithData () {
-    d3.json('/multi-schedules.json', function (erro, responseData) {
+    d3.json('/timelinster/multi-schedules.json', function (erro, responseData) {
       data = responseData;
       draw();
     });

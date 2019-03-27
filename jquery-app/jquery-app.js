@@ -1,8 +1,4 @@
-/**
- * @ignore @hack for eslint
- */
-var timelineFns = timelineFns;
-var jQuery = jQuery;
+/* globals timelineFns  jQuery timelineFns */
 // --- end hack --- //
 
 (function ($, tlfns) {
@@ -22,13 +18,13 @@ var jQuery = jQuery;
         $elem.html('<label>' + tlfns.labelFormat(item) + '</label>');
       }
       var style = stylefn(item);
-      $elem.css({'width': style.width, 'left': style.left}).addClass(className);
+      $elem.css({ 'width': style.width, 'left': style.left }).addClass(className);
       $parent.append($elem);
     }
   };
 
   $(document).ready(function () {
-    $.get('/schedule.json', function (data) {
+    $.get('/timelinster/schedule.json', function (data) {
       var $parent = $('#bars');
       renderEventView($parent, data.schedule, tlfns.generateEventStyle, 'event-deltas');
       renderEventView($parent, data.ticks, tlfns.generateTickStyle, 'ticks');

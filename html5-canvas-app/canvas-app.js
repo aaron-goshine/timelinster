@@ -1,5 +1,4 @@
-/** @ignore */
-var timelineFns = timelineFns;
+/* globals timelineFns */
 // -- end --/
 
 (function (tlfns) {
@@ -60,7 +59,7 @@ var timelineFns = timelineFns;
 
   window.addEventListener('load', function () {
     var roger = new XMLHttpRequest();
-    roger.open('GET', '/schedule.json', true);
+    roger.open('GET', '/timelinster/schedule.json', true);
     roger.onreadystatechange = function () {
       if (roger.readyState !== 4 || roger.status !== 200) return;
       data = JSON.parse(roger.responseText);
