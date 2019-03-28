@@ -1,8 +1,0 @@
-   {
-  "name": "Generic Company",
-  "description": "A generic company example",
-  "repository": "git@github.com:aaron-goshine/vine.git",
-  "logo": "http://node-js-sample.herokuapp.com/iamges/logo.svg",
-  "keywords": ["node", "express", "static"],
-  "image": "heroku/nodejs"
-}
